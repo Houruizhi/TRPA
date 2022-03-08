@@ -22,7 +22,23 @@ imaging (MRI) reconstruction problem, which allows plugging the pre-trained deno
 
 ![table](./source/table_SIAT.png)
 
+To adopt our code for your own dataset, the first step is preparing the training and testing data using our code.
+```bash
+cd src/data
+```
+Run the python code.
+```bash
+python prepare_data.py
+```
+Please modify the code by yourself for different datasets.
 
+The second step is to train the denoiser.
+```python
+python main_train_denoiser.py --config_file ./options/SIAT_TRPA.yaml
+```
+where `./options/SIAT_TRPA.yaml` consists of all the parameters setting.
+
+Then we can reconstruct the MR image using the pre-trained denoiser. Our pre-trained weights using SIAT and fastMRI dataset are in [releases](https://github.com/Houruizhi/TRPA/releases). To use the pre-trained weights, you should decompress the files into `./checkpoints`. You can see the jupyter notebook files to know how to use the denoiser. Or you can run `test_on_dataset_*.py` directly to evaluate on different datasets.
 
 Train and test dataset:
 
