@@ -1,0 +1,38 @@
+DESCRIPTION: ""
+DATASET:
+  TRAIN:
+    ROOT: '/home/rzhou/ssd_cache/SIAT/train'
+    BLIND: False
+    PATCH_SIZE: 64
+    REPEAT: 512
+    BATCH_SIZE: 48
+    SAMPLE_RATE: 1.
+    ABS: False
+    TASK: 'null'
+    AUGMENT: True
+    SAVE_TO_MEMORY: False
+
+  VAL:
+    TASK: 'null'
+    ROOT: '/home/rzhou/ssd_cache/SIAT/test'
+    # ROOT: ''
+    ABS: False
+    SAVE_TO_MEMORY: False
+
+TRAIN:
+  RESUME: False
+  NUM_EPOCHS: 64
+  OUT_DIR: "/home/rzhou/local/checkpoints/SIAT_TRPA_plainloss"
+  PARALLE: False
+  SHOW_MIDDLE_RESULTS: False
+
+SOLVER:
+  MILESTONE: 48
+  LEARNING_RATE: 5e-3
+  LEARNING_RATE_DECAY: 0.1
+  GRADIENT_CLIP: 0.5
+  OPTIMIZER: 'ADAM'
+
+SYSTEM:
+  GPU_IDS: (1,)
+  NUM_GPUS: 1

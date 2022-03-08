@@ -1,0 +1,39 @@
+DESCRIPTION: ""
+DATASET:
+  TRAIN:
+    ROOT: '/home/rzhou/ssd_cache/fastMRI_npy_split/singlecoil_train_lownoise'
+    BLIND: False
+    PATCH_SIZE: 64
+    REPEAT: 3
+    BATCH_SIZE: 18
+    SAMPLE_RATE: 1.
+    ABS: False
+    TASK: 'null'
+    AUGMENT: True
+    SAVE_TO_MEMORY: False
+
+  VAL:
+    TASK: 'null'
+    # ROOT: '/home/rzhou/ssd_cache/fastMRI_npy/singlecoil_val'
+    ROOT: ''
+    ABS: False
+    SAVE_TO_MEMORY: False
+
+TRAIN:
+  RESUME: False
+  NUM_EPOCHS: 32
+  OUT_DIR: "/home/rzhou/local/checkpoints/fastMRI_waveletnet"
+  RESUME_CHP_DIR: "/home/rzhou/local/checkpoints/fastMRI_TRPA_n2n_highnoise2"
+  PARALLE: False
+  SHOW_MIDDLE_RESULTS: True
+
+SOLVER:
+  MILESTONE: 24
+  LEARNING_RATE: 5e-4 # 5e-3 for refineunet with scorematching
+  LEARNING_RATE_DECAY: 0.1
+  GRADIENT_CLIP: 0.5
+  OPTIMIZER: 'ADAM'
+
+SYSTEM:
+  GPU_IDS: (1,)
+  NUM_GPUS: 1
