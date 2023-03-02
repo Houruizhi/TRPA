@@ -1,4 +1,4 @@
-# Truncated Residual Based Plug-and-Play ADMM Algorithm for MRI Reconstruction ([TRPA](10.1109/TCI.2022.3145187))
+# Truncated Residual Based Plug-and-Play ADMM Algorithm for MRI Reconstruction ([TRPA](https://doi.org/10.1109/TCI.2022.3145187))
 
 **Authors**: Ruizhi Hou, Fang Li<sup>*</sup>, and Guixu Zhang
 
