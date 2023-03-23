@@ -76,15 +76,10 @@ class Transform:
         if self.if_abs:
             image = np.abs(image)
 
-        image_target = numpy2tensor(image[100:-100, 20:-20])
+        image_target = numpy2tensor(image)
 
         if self.patch_size > 0:
-            if np.random.rand(1)>0.5:
-                image_target = get_random_patch(image_target, self.patch_size*2).permute(2,0,1)
-                image_target = F.interpolate(image_target.unsqueeze(0), size=[self.patch_size,self.patch_size], 
-                    mode='bilinear', align_corners=True).squeeze(0)
-            else:
-                image_target = get_random_patch(image_target, self.patch_size).permute(2,0,1)
+            image_target = get_random_patch(image_target, self.patch_size).permute(2,0,1)
         
         image_target = image_target / torch.sqrt(torch.sum(image_target.pow(2), dim=0, keepdim=True)).max()
 
