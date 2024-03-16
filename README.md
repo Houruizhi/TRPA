@@ -7,6 +7,10 @@
 Plug-and-play alternating direction method of multiplier (PnP-ADMM) can be used to solve the magnetic resonance
 imaging (MRI) reconstruction problem, which allows plugging the pre-trained denoiser to solve the denoising-like subproblem in ADMM. Many researchers explore the property of the denoiser to ensure the convergence of PnP-ADMM. However, it is hard to prove that the pre-trained deep learning based denoiser satisfies the assumption. In this paper, we propose a truncated residual based PnP-ADMM that solves the denoising-like subproblem by subtracting the predicted residual of the denoising neural network. Instead of establishing the assumption for the denoiser, we truncate the residual with a variable that tends to zero. In this way, the iterative sequence of the proposed algorithm can strictly converge to a fixed point. This truncated residual based plug-and-play ADMM algorithm is called TRPA. Moreover, to allow the denoiser to deal with the continuous noise level, we design a continuous conditional instance normalization (CCIN) layer. With the truncated residual and the powerful neural network with CCIN, the TRPA has strict convergence property as well as great image restoration ability. Qualitative and quantitative results show that our proposed TRPA is comparable with state-of-the-art methods. It is worth noticing that TRPA as a plug-and-play method is comparable with the end-to-end model at the leaderboard of fastMRI challenge.
 
+**Main Idea**:
+
+We use the score-based generative model to solve the denoising problem of the MRI reconstruction algorithm. The ADMM iteration is faster than Langevin dynamics. One can also adopt the diffusion model. 
+
 **Intermediate results during the iteration**:
 
 ![middle_res](./source/middle_res_local.png)
